@@ -173,7 +173,7 @@ func fetchAverageProgram() {
         var totalPoint: Float = 0
         for (key, value) in dict {
             print("\(key): \(value.rawValue)")
-            totalPoint += value.getPoints()
+            totalPoint += value.point
         }
         let averagePoint = totalPoint/Float(dict.count)
         print("평점 : \(floor(averagePoint*100)/100)")
@@ -202,7 +202,7 @@ enum Grade: String, CaseIterable {
     case dZero = "D"
     case fail = "F"
     
-    func getPoints() -> Float {
+    var point: Float {
         switch self {
         case .aPlus:
             return 4.5
